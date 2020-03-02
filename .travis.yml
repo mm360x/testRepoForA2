@@ -10,3 +10,6 @@ script:
 - python -m unittest discover -v ./ci_play/
 - coverage run ./ci_play/test.py
 after success: bash <(curl -s https://codecov.io/bash)
+before_install:
+- openssl aes-256-cbc -K $encrypted_e5004f243a18_key -iv $encrypted_e5004f243a18_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
