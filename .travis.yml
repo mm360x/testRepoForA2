@@ -1,0 +1,12 @@
+language: python
+python:
+- '3.7'
+env:
+- CODECOV_TOKEN=""
+install:
+- pip install codecov
+- pip install coverage
+script:
+- python -m unittest discover -v ./ci_play/
+- coverage run ./ci_play/test.py
+after success: bash <(curl -s https://codecov.io/bash)
