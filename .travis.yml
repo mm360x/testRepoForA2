@@ -2,7 +2,7 @@ language: python
 python:
 - '3.7'
 env:
-- CODECOV_TOKEN="a8345d97-ae52-4ec2-8e30-88040f40363d"
+- CODECOV_TOKEN=""
 install:
 - pip install codecov
 - pip install coverage
@@ -19,7 +19,7 @@ before_install:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet ${TRAVIS_BUILD_DIR}/ci_play ${DEPLOY_USER}@${DEPLOY_SERVER}:/home/${DEPLOY_USER}/testCI2/deploy/
+  script: rsync -r --delete-after --quiet ${TRAVIS_BUILD_DIR}/ci_play ${DEPLOY_USER}@${DEPLOY_SERVER}:/home/avm/courses/cps847/${DEPLOY_USER}
   on:
     branch: master
 addons:
